@@ -5,7 +5,7 @@ Plugin URI: http://www.hansvaneijsden.com/wordpress-sharpen-resized-images-plugi
 Description: Improve your images: Sharpens resized JPG image uploads via ImageMagick so it keeps quality, EXIF information, color profiles and crops.
 Author: Hans van Eijsden
 Author URI: http://www.hansvaneijsden.com/
-Version: 1.1
+Version: 1.1.1
 License: GPL v3
 
 This program is free software: you can redistribute it and/or modify
