@@ -73,6 +73,9 @@ Just deactivate the plugin and (re)activate it. This will restore the default va
 
 == Upgrade Notice ==
 
+= 1.1.1 =
+Settings are now stored in the database. Please recheck your settings by going to IM Sharpen Images in the Settings panel.
+
 = 1.1 =
 Settings are now stored in the database. Please recheck your settings by going to IM Sharpen Images in the Settings panel.
 
