@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=hans%
 Tags: sharpen, sharpening, image, images, imagick, imagemagick, resize, resized, quality, compression, photo, photos
 Requires at least: 3.5
 Tested up to: 3.9.1
-Stable tag: 1.1
+Stable tag: 1.1.1
 License: GPL v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -58,6 +58,10 @@ Just deactivate the plugin and (re)activate it. This will restore the default va
 3. Admin options
 
 == Changelog ==
+
+= 1.1.1 =
+* Automatic Contrast Leveling has now really been enabled by default
+* Added a screenshot of the Settings page
 
 = 1.1 =
 * Added an admin settings screen which lets you change all the options more easily (thanks niwreg!)
