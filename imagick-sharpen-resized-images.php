@@ -27,7 +27,7 @@ function imagick_sharpen_resized_files_register_settings() {
 	add_option('Sharpening', '1');
 	add_option('Threshold', '0');
 	add_option('CompressionQuality','92');
-	add_option('AutoConLev', false);
+	add_option('AutoConLev', true);
   	register_setting( 'imagick_sharpen_resized_files_settings', 'Radius' );
 	register_setting( 'imagick_sharpen_resized_files_settings', 'Sigma' );
 	register_setting( 'imagick_sharpen_resized_files_settings', 'Sharpening' );
