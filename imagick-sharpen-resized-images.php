@@ -5,7 +5,7 @@ Plugin URI: http://www.hansvaneijsden.com/wordpress-sharpen-resized-images-plugi
 Description: Improve your images: Sharpens resized JPG image uploads via ImageMagick so it keeps quality, EXIF information, color profiles and crops.
 Author: Hans van Eijsden
 Author URI: http://www.hansvaneijsden.com/
-Version: 1.1.1
+Version: 1.1.2
 License: GPL v3
 
 This program is free software: you can redistribute it and/or modify
@@ -22,23 +22,23 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */ 
 function imagick_sharpen_resized_files_register_settings() {
-	add_option('Radius', '0');
-	add_option('Sigma', '0.5');
-	add_option('Sharpening', '1');
-	add_option('Threshold', '0');
+	add_option('Radius','0');
+	add_option('Sigma','0.5');
+	add_option('Sharpening','1');
+	add_option('Threshold','0');
 	add_option('CompressionQuality','92');
-	add_option('AutoConLev', true);
-  	register_setting( 'imagick_sharpen_resized_files_settings', 'Radius' );
-	register_setting( 'imagick_sharpen_resized_files_settings', 'Sigma' );
-	register_setting( 'imagick_sharpen_resized_files_settings', 'Sharpening' );
-	register_setting( 'imagick_sharpen_resized_files_settings', 'Threshold' );
-	register_setting( 'imagick_sharpen_resized_files_settings', 'AutoConLev' );
-	register_setting( 'imagick_sharpen_resized_files_settings', 'CompressionQuality' );
+	add_option('AutoConLev',true);
+  	register_setting('imagick_sharpen_resized_files_settings','Radius');
+	register_setting('imagick_sharpen_resized_files_settings','Sigma');
+	register_setting('imagick_sharpen_resized_files_settings','Sharpening');
+	register_setting('imagick_sharpen_resized_files_settings','Threshold');
+	register_setting('imagick_sharpen_resized_files_settings','AutoConLev');
+	register_setting('imagick_sharpen_resized_files_settings','CompressionQuality');
 
 } 
 
 function imagick_sharpen_resized_files_register_options_page() {
-	add_options_page('ImageMagick Sharpen Resized Images', 'IM Sharpen Images', 'manage_options', __FILE__, 'imagick_sharpen_resized_files_options_page');
+	add_options_page('ImageMagick Sharpen Resized Images','IM Sharpen Images','manage_options',__FILE__,'imagick_sharpen_resized_files_options_page');
 }
 
  
@@ -57,14 +57,14 @@ function imagick_sharpen_resized_files_options_page() { 	// Output the options p
 ?>
 	<div class="wrap">
 	<h2>ImageMagick Sharpen Resized Images</h2>
-    <p><a href="http://www.hansvaneijsden.com/wordpress-sharpen-resized-images-plugin/"><?php _e('Plugin Home Page'); ?></a> |
-    <a href="http://wordpress.org/plugins/imagemagick-sharpen-resized-images/"><?php _e('WordPress Plugin Page'); ?></a></p>
+	<p><a href="http://www.hansvaneijsden.com/wordpress-sharpen-resized-images-plugin/"><?php _e('Plugin Home Page'); ?></a> |
+	<a href="http://wordpress.org/plugins/imagemagick-sharpen-resized-images/"><?php _e('WordPress Plugin Page'); ?></a></p>
 
 <p>
 <?php
-        if ( extension_loaded('imagick') || class_exists("Imagick") )
+        if (extension_loaded('imagick') || class_exists('Imagick'))
 {
-    //Imagick is installed
+    // imagick PHP module is installed
 echo 'ImageMagick PHP Module: <span style="color: green; font-weight: bolder">OK, installed';
         } else {
 echo 'ImageMagick PHP Module: <span style="color: red; font-weight: bolder">MISSING, not installed';
@@ -74,8 +74,8 @@ echo 'ImageMagick PHP Module: <span style="color: red; font-weight: bolder">MISS
 <p>The default settings are great, but you can adjust them to your taste here: </p>
 
 	<form method="post" action="options.php">
-		<?php settings_fields( 'imagick_sharpen_resized_files_settings' ); ?>
-		<?php do_settings_sections( 'imagick_sharpen_resized_files_settings' ); ?>
+		<?php settings_fields('imagick_sharpen_resized_files_settings'); ?>
+		<?php do_settings_sections('imagick_sharpen_resized_files_settings'); ?>
 		<table class="form-table">
 			<tr valign="top">
 			<th scope="row">Radius (0 = auto):</th>
@@ -130,9 +130,6 @@ echo 'ImageMagick PHP Module: <span style="color: red; font-weight: bolder">MISS
 }
 
 function imagick_sharpen_resized_files($resized_file) {
-	settings_fields( 'imagick_sharpen_resized_files_settings' );
-    do_settings_sections( 'imagick_sharpen_resized_files_settings' );
-	
 	$image = new Imagick($resized_file); 
 	$size = @getimagesize($resized_file);
 	if (!$size)
@@ -151,7 +148,7 @@ function imagick_sharpen_resized_files($resized_file) {
 	// Sharpen the image (the default is via the Lanczos algorithm)
         $image->unsharpMaskImage(get_option('Radius'),get_option('Sigma'),get_option('Sharpening'),get_option('Threshold'));
         
-    // Store the JPG file, with as default a compression quality of 92 (default WordPress = 90, default ImageMagick = 85...)
+	// Store the JPG file, with as default a compression quality of 92 (default WordPress = 90, default ImageMagick = 85...)
         $image->setImageFormat("jpg");
         $image->setImageCompression(Imagick::COMPRESSION_JPEG);
         $image->setImageCompressionQuality(get_option('CompressionQuality'));
@@ -169,6 +166,6 @@ function imagick_sharpen_resized_files($resized_file) {
 }	
 	
 add_filter('image_make_intermediate_size','imagick_sharpen_resized_files',900);
-register_deactivation_hook( __FILE__, 'imagick_sharpen_resized_files_deactivate' );
-add_action( 'admin_init', 'imagick_sharpen_resized_files_register_settings' );
-add_action('admin_menu', 'imagick_sharpen_resized_files_register_options_page');
+register_deactivation_hook( __FILE__,'imagick_sharpen_resized_files_deactivate');
+add_action('admin_init','imagick_sharpen_resized_files_register_settings');
+add_action('admin_menu','imagick_sharpen_resized_files_register_options_page');

@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=hans%
 Tags: sharpen, sharpening, image, images, imagick, imagemagick, resize, resized, quality, compression, photo, photos
 Requires at least: 3.5
 Tested up to: 3.9.1
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPL v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -59,6 +59,9 @@ Just deactivate the plugin and (re)activate it. This will restore the default va
 
 == Changelog ==
 
+= 1.1.2 =
+* Fixed some rare errors while generating thumbnails and/or uploading images
+
 = 1.1.1 =
 * Automatic Contrast Leveling has now really been enabled by default
 * Added a screenshot of the Settings page
@@ -73,6 +76,9 @@ Just deactivate the plugin and (re)activate it. This will restore the default va
 
 == Upgrade Notice ==
 
+= 1.1.2 =
+Upgrading from 1.0? Settings are now stored in the database. Please recheck your settings by going to IM Sharpen Images in the Settings panel.
+
 = 1.1.1 =
 Settings are now stored in the database. Please recheck your settings by going to IM Sharpen Images in the Settings panel.
 
@@ -81,3 +87,6 @@ Settings are now stored in the database. Please recheck your settings by going t
 
 = 1.0 =
 This fixes the WordPress blurry images problem
+
+== ToDo ==
+There's one thing I really want to fix: after unchecking the Automatic Contrast Leveling in Settings, it won't turn on again. Plugin needs deactivating and (re)activating to enable it again.
