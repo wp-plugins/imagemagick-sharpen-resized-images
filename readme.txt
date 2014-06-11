@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=hans%
 Tags: sharpen, sharpening, image, images, imagick, imagemagick, resize, resized, quality, compression, photo, photos
 Requires at least: 3.5
 Tested up to: 3.9.1
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPL v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -21,7 +21,7 @@ Want regular updates? Become a fan on [Facebook](https://www.facebook.com/hansva
 
 == Installation ==
 
-1. Upload `imagick-sharpen-resized-images.php` to the `/wp-content/plugins/` directory
+1. Upload `imagick-sharpen-resized-images.php` to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. In your Wordpress Settings you'll have a new admin entry: IM Sharpen Images.
 
@@ -31,14 +31,15 @@ Check http://codex.wordpress.org/Managing_Plugins#Installing_Plugins for more de
 
 = Are there any system requirements? =
 
-Your host needs to have the [imagick PHP module](http://pecl.php.net/package/imagick) installed.
-The plugin has a built-in check.
+Your host needs to have the [imagick PHP module](http://pecl.php.net/package/imagick) installed (and, of course, the [ImageMagick](http://www.imagemagick.org) program itself).
+The imagick PHP module is NOT a WordPress plugin, but a module for PHP. The plugin has a built-in check for this imagick PHP module.
 
-If you don't have the PHP imagick module installed you can still sharpen your images by using the [Sharpen Resized Images](https://wordpress.org/plugins/sharpen-resized-images/) plugin. It sharpens the images by using lower quality GD, so it strips EXIF data and it strips color profiles.
+If you don't have the imagick PHP module installed you can still sharpen your images by using the [Sharpen Resized Images](https://wordpress.org/plugins/sharpen-resized-images/) plugin. It sharpens the images by using lower quality GD, so it strips EXIF data and it strips color profiles.
 
 = I don't see any sharpening, why? =
 
 * After you enable the plugin it will only sharpen new uploads. If you want to sharpen your already uploaded images you will also need the [Regenerate Thumbnails](http://wordpress.org/plugins/regenerate-thumbnails/) plugin.
+* Make sure to have not only the PHP module but also the ImageMagick software installed on the server (most servers have it though).
 * Still no differences? Clear your browser cache.
 * If you're using Varnish cache or other server caches, empty them.
 * Sharpening only works with JPG files.
@@ -58,6 +59,9 @@ Just deactivate the plugin and (re)activate it. This will restore the default va
 3. Admin options
 
 == Changelog ==
+
+= 1.1.3 =
+* The Automatic Contrast Leveling checkbox bug has been fixed (thanks niwreg!)
 
 = 1.1.2 =
 * Fixed some rare errors while generating thumbnails and/or uploading images
@@ -86,7 +90,4 @@ Settings are now stored in the database. Please recheck your settings by going t
 Settings are now stored in the database. Please recheck your settings by going to IM Sharpen Images in the Settings panel.
 
 = 1.0 =
-This fixes the WordPress blurry images problem
-
-== ToDo ==
-There's one thing I really want to fix: after unchecking the Automatic Contrast Leveling in Settings, it won't turn on again. Plugin needs deactivating and (re)activating to enable it again.
+This fixes the WordPress blurry images problem.
