@@ -4,8 +4,8 @@ Contributors: HansVanEijsden, niwreg
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=hans%40hansheino%2enl
 Tags: sharpen, sharpening, image, images, imagick, imagemagick, resize, resized, quality, compression, photo, photos
 Requires at least: 3.5
-Tested up to: 3.9.1
-Stable tag: 1.1.3
+Tested up to: 4.0.1
+Stable tag: 1.1.4
 License: GPL v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
